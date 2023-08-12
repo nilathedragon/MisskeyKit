@@ -26,15 +26,16 @@ public struct UserModel: Codable {
     public var description: String?
     public var host: String?
     public var avatarUrl: String?
-//    public var avatarColor: String?
+    public var avatarColor: String?
     public var isAdmin, isBot, isCat: Bool?
-    public var emojis: [String:String]?
+    public var emojis: [EmojiModel]?
     public var url: String?
     public var createdAt, updatedAt: String?
     public var bannerUrl, bannerColor: String?
     public var isLocked, isModerator, isSilenced, isSuspended: Bool?
     public var userDescription, location, birthday: String?
     public var fields: [Field?]?
+    public var instance: UserInstance?
     public var followersCount, followingCount, notesCount: Int?
     public var pinnedNoteIds: [String?]?
     public var pinnedNotes: [NoteModel?]?
@@ -85,4 +86,13 @@ public struct FollowRequestModel: Codable {
     public var id: String
     public var followee: UserModel?
     public var follower: UserModel?
+}
+
+public struct UserInstance: Codable {
+    public var name: String?
+    public var softwareName: String?
+    public var softwareVersion: String?
+    public var iconUrl: String?
+    public var faviconUrl: String?
+    public var themeColor: String?
 }

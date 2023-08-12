@@ -16,7 +16,7 @@ protocol ApiHandler {
     // MARK: Helper
     
     var urlHelper: UrlHelper { get }
-    func arrayReactions(rawJson: String) -> String
+    func sanitizeResponse(rawJson: String) -> String
     
     // MARK: Handling
     
@@ -117,12 +117,16 @@ open class MisskeyKit: ApiHandler {
         handleAPI(needApiKey: needApiKey, api: api, params: params, data: data, fileType: fileType, type: T.self, missingCount: nil, callback: callback)
     }
     
+    
+    func sanitizeResponse(rawJson: String) -> String {
+        return rawJson
+    }
+    
     // ** 参考 **
     // reactionsのkeyは無数に存在するため、codableでのパースは難しい。
     // そこで、生のjsonを直接弄り、reactionsを配列型に変更する。
     // Ex: "reactions":{"like":2,"😪":2} → "reactions":[{name:"like",count:2},{name:"😪",count:2}]
-    
-    func arrayReactions(rawJson: String) -> String {
+    func arrayReactions_DEPRECATED(rawJson: String) -> String {
         // reactionsを全て取り出す
         let reactionsList = rawJson.regexMatches(pattern: "(\"reactions\":\\{[^\\}]*\\})")
         guard reactionsList.count > 0 else { return rawJson }
@@ -169,7 +173,7 @@ open class MisskeyKit: ApiHandler {
             return
         }
         
-        let resultJson = arrayReactions(rawJson: resultRawJson) // Changes a form of reactions to array.
+        let resultJson = sanitizeResponse(rawJson: resultRawJson) // Changes a form of reactions to array.
         
         if let response = response, response.statusCode == 200, resultJson.count == 0 {
             callback(nil, nil)

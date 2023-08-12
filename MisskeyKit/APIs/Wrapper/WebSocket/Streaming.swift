@@ -189,13 +189,13 @@ extension MisskeyKit {
             var response: Any?
             if related2Notification(typeInBody) {
                 // Convert a raw json to StreamingModel.
-                response = handler.arrayReactions(rawJson: BinBjson).decodeJSON(StreamingModel.self)
+                response = handler.sanitizeResponse(rawJson: BinBjson).decodeJSON(StreamingModel.self)
             } else if typeInBody == "followed" {
                 // Convert a raw json to UserModel.
                 response = BinBjson.decodeJSON(UserModel.self)
             } else {
                 // Convert a raw json to NoteModel.
-                response = handler.arrayReactions(rawJson: BinBjson).decodeJSON(NoteModel.self)
+                response = handler.sanitizeResponse(rawJson: BinBjson).decodeJSON(NoteModel.self)
             }
             
             return (response: response, channel: ids[id], responseType: typeInBody)

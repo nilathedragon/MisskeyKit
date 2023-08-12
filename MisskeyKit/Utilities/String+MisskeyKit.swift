@@ -31,15 +31,8 @@ internal extension String {
         if #available(iOS 13.0, *) {
             guard let stringData = self.data(using: String.Encoding.utf8) else { return nil }
             return SHA256.hash(data: stringData).map { String(format: "%02hhx", $0) }.joined()
-        } else {
-            // Fallback on earlier versions
-            guard let stringData = data(using: String.Encoding.utf8) else { return nil }
-            var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
-            stringData.withUnsafeBytes { bytes in
-                _ = CC_SHA256(bytes.baseAddress, CC_LONG(self.count), &digest)
-            }
-            return digest.makeIterator().map { String(format: "%02x", $0) }.joined()
         }
+        return nil
     }
     
     func regexMatches(pattern: String) -> [[String]] {

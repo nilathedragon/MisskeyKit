@@ -16,8 +16,8 @@ public class NoteModel: Codable {
     public var viaMobile: Bool?
     public var isHidden: Bool?
     public var renoteCount, repliesCount: Int?
-    public var reactions: [ReactionCount?]?
-    public var emojis: [String:String]?
+    public var reactions: [String:Int]?
+    public var emojis, reactionEmojis: [EmojiModel]?
     public var files: [File?]?
     public var replyId, renoteId: String?
     public var renote: NoteModel?
@@ -56,18 +56,6 @@ public struct File: Codable {
 public struct Properties: Codable {
     public var width, height: Int?
     public var avgColor: String?
-}
-
-// MARK: - Reaction
-
-public struct ReactionCount: Codable {
-    public var name: String?
-    public var count: String?
-    
-    public init(name: String, count: String) {
-        self.name = name
-        self.count = count
-    }
 }
 
 // MARK: - Visibility
