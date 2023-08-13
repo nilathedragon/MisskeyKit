@@ -144,6 +144,15 @@ extension MisskeyKit {
             socket.write(string: disconnectJson)
         }
         
+        public func stopListening(remoteUserOrGroupId: String) throws {
+            guard let socket = socket else {
+                throw MisskeyKitError.NoStreamConnection
+            }
+            
+            let disconnectJson = "{\"type\":\"disconnect\",\"body\":{\"id\":\"\(remoteUserOrGroupId)\"}}"
+            socket.write(string: disconnectJson)
+        }
+        
         // MARK: - Capturing
         
         public func captureNote(noteId: String) throws {
@@ -154,6 +163,19 @@ extension MisskeyKit {
             let requestJson = "{\"type\":\"subNote\",\"body\":{\"id\":\"\(noteId)\"}}"
             socket.write(string: requestJson)
         }
+        
+        // MARK: Messaging
+        
+        public func captureChat(_ remoteUserOrGrouId: String) throws {
+            guard let socket = socket else {
+                throw MisskeyKitError.NoStreamConnection
+            }
+            
+            let requestJson = "{\"type\":\"connect\",\"body\":{\"channel\":\"messaging\",\"id\":\"\(remoteUserOrGrouId)\",\"params\":{\"otherparty\":\"\(remoteUserOrGrouId)\"}}}"
+            socket.write(string: requestJson)
+        }
+        
+        
         
         // MARK: - Handling Events
         
@@ -170,8 +192,8 @@ extension MisskeyKit {
             }
             
             guard let (bodyInBody, otherParamsInBody) = disassembleJson(body),
-                let id = otherParamsInBody["id"] as? String,
-                let BinBjson = bodyInBody.toRawJson() else { return (nil, nil, nil) }
+                  let id = otherParamsInBody["id"] as? String,
+                  let BinBjson = bodyInBody.toRawJson() else { return (nil, nil, nil) }
             
             if isNoteUpdatedType {
                 var response = BinBjson.decodeJSON(NoteUpdatedModel.self)
@@ -187,7 +209,9 @@ extension MisskeyKit {
             // ↓ The type of this json data is "channel". ↓
             
             var response: Any?
-            if related2Notification(typeInBody) {
+            if typeInBody == "message" || typeInBody == "messagingMessage" {
+                response = handler.sanitizeResponse(rawJson: BinBjson).decodeJSON(MessageModel.self)
+            } else if related2Notification(typeInBody) {
                 // Convert a raw json to StreamingModel.
                 response = handler.sanitizeResponse(rawJson: BinBjson).decodeJSON(StreamingModel.self)
             } else if typeInBody == "followed" {
