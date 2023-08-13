@@ -30,6 +30,10 @@ public struct MetaModel: Codable {
     public let enableEmail, enableTwitterIntegration, enableGithubIntegration, enableDiscordIntegration: Bool?
     public let enableServiceWorker: Bool?
     public let features: Features?
+    
+    // MARK: Firefish additions
+    public let defaultReaction: String?
+    public let donationLink: String?
 }
 
 // MARK: - Announcement
