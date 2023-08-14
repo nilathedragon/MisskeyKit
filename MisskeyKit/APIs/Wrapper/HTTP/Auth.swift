@@ -19,11 +19,13 @@ extension MisskeyKit {
         
         public var me: Me? // infomation of logedin account, which have accessToken
         public var token: Token? // token of SESSION
+        #if canImport(UIKit)
         public var viewController: AuthViewController {
             let authVC = AuthViewController()
             authVC.setup(from: self)
             return authVC
         }
+        #endif
         
         private var apiKey: String?
         

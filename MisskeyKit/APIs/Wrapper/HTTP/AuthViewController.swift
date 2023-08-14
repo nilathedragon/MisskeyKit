@@ -6,6 +6,7 @@
 //  Copyright © 2019 Yuiga Wada. All rights reserved.
 //
 
+#if canImport(UIKit)
 import SafariServices
 import UIKit
 
@@ -70,3 +71,4 @@ public class AuthViewController: UIViewController, SFSafariViewControllerDelegat
         }
     }
 }
+#endif

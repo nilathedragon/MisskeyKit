@@ -28,7 +28,7 @@ internal extension String {
     }
     
     func sha256() -> String? {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, macOS 10.15, *) {
             guard let stringData = self.data(using: String.Encoding.utf8) else { return nil }
             return SHA256.hash(data: stringData).map { String(format: "%02hhx", $0) }.joined()
         }
