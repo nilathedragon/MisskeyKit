@@ -283,7 +283,7 @@
 				};
 			};
 			buildConfigurationList = 8D71B7C0236EE6C900374F5A /* Build configuration list for PBXProject "MisskeyKit" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -488,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = MisskeyKit/Resources;
-				DEVELOPMENT_TEAM = 4LMTSU8RLS;
+				DEVELOPMENT_TEAM = YR8RBAQQAV;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -526,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = MisskeyKit/Resources;
-				DEVELOPMENT_TEAM = 4LMTSU8RLS;
+				DEVELOPMENT_TEAM = YR8RBAQQAV;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

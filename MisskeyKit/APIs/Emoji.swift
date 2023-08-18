@@ -28,13 +28,13 @@ extension MisskeyKit {
             
             // If defaultEmoji was not set ...
             
-            guard let path = bundle.path(forResource: "emojilist",
-                                         ofType: "json")
+            guard let path = Bundle.module.url(forResource: "emojilist",
+                                         withExtension: "json")
             else { completion(nil); return }
             
             DispatchQueue.global(qos: .default).async {
                 do {
-                    let rawJson = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+                    let rawJson = try String(contentsOf: path, encoding: String.Encoding.utf8)
                     self.defaultEmoji = rawJson.decodeJSON([DefaultEmojiModel].self)
                 } catch { completion(nil); return }
                 
