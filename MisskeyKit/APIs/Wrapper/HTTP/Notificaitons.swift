@@ -15,14 +15,19 @@ extension MisskeyKit {
             self.handler = handler
         }
         
-        public func get(limit: Int = 10, sinceId: String = "", untilId: String = "", following: Bool = true, markAsRead: Bool = true, includeTypes: [ActionType] = [], excludeTypes: [ActionType] = [], result callback: @escaping NotificationsCallBack) {
+        public func get(limit: Int = 10, sinceId: String = "", untilId: String = "", following: Bool = true, markAsRead: Bool = true, includeTypes: [ActionType] = [], excludeTypes: [ActionType] = [], unreadOnly: Bool = false, result callback: @escaping NotificationsCallBack) {
             var params = ["limit": limit,
                           "sinceId": sinceId,
                           "untilId": untilId,
                           "following": following,
-                          "includeTypes": includeTypes,
-                          "excludeTypes": excludeTypes,
-                          "markAsRead": markAsRead] as [String: Any]
+                          "includeTypes": includeTypes.map({ type in
+                                type.rawValue
+                            }),
+                          "excludeTypes": excludeTypes.map({ type in
+                                type.rawValue
+                            }),
+                          "markAsRead": markAsRead,
+                          "unreadOnly": unreadOnly] as [String: Any]
             
             params = params.removeRedundant()
             handler.handleAPI(needApiKey: true, api: "i/notifications", params: params, type: [NotificationModel].self) { users, error in
