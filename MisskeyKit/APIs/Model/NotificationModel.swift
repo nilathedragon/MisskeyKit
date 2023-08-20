@@ -26,6 +26,7 @@ public enum ActionType: String, Codable {
     case quote
     case reaction
     case pollVote
+    case pollEnded
     case receiveFollowRequest
     case followRequestAccepted
     case achievementEarned
