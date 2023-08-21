@@ -37,6 +37,7 @@ open class MisskeyKit: ApiHandler {
     // MARK: Main REST
     
     public lazy var auth: Auth = .init(from: self)
+    public lazy var antennas: MisskeyKit.Antennas = .init(from: self)
     public lazy var notes: MisskeyKit.Notes = .init(from: self)
     public lazy var users: MisskeyKit.Users = .init(from: self)
     public lazy var groups: MisskeyKit.Groups = .init(from: self)

@@ -37,4 +37,6 @@ public typealias BlockListCallBack = ([BlockList]?, MisskeyKitError?) -> Void
 public typealias MetaCallBack = (MetaModel?, MisskeyKitError?) -> Void
 public typealias AppCallBack = (AppModel?, MisskeyKitError?) -> Void
 
+public typealias AntennasCallback = ([AntennaModel]?, MisskeyKitError?) -> Void
+
 public typealias SwCallBack = (ServiceWorkerModel?, MisskeyKitError?) -> Void

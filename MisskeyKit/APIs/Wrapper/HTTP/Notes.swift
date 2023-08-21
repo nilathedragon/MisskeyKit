@@ -251,6 +251,24 @@ extension MisskeyKit {
             }
         }
         
+        public func getAntennaTimeline(antennaId: String = "", limit: Int = 10, sinceDate: Int = 0, untilDate: Int = 0, sinceId: String = "", untilId: String = "", completion callback: @escaping NotesCallBack) {
+            var params = ["antennaId": antennaId,
+                          "untilDate": untilDate,
+                          "sinceDate": sinceDate,
+                          "limit": limit,
+                          "sinceId": sinceId,
+                          "untilId": untilId] as [String: Any]
+            
+            params = params.removeRedundant()
+            handler.handleAPI(needApiKey: true, api: "antennas/notes", params: params, type: [NoteModel].self) { posts, error in
+                
+                if let error = error { callback(nil, error); return }
+                guard let posts = posts else { callback(nil, error); return }
+                
+                callback(posts, nil)
+            }
+        }
+        
         // MARK: - Featured
         
         public func getFeatured(limit: Int = 10, result callback: @escaping NotesCallBack) {
