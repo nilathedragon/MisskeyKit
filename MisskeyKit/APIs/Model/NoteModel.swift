@@ -32,6 +32,38 @@ public class NoteModel: Codable {
     public var geo: Geo?
     public var _featuredId_: String?
     public var _prId_: String?
+    
+    init(id: String? = nil, createdAt: String? = nil, userId: String? = nil, user: UserModel? = nil, text: String? = nil, cw: String? = nil, visibility: Visibility? = nil, viaMobile: Bool? = nil, isHidden: Bool? = nil, renoteCount: Int? = nil, repliesCount: Int? = nil, reactions: [String : Int]? = nil, emojis: [EmojiModel]? = nil, reactionEmojis: [EmojiModel]? = nil, files: [File?]? = nil, replyId: String? = nil, renoteId: String? = nil, renote: NoteModel? = nil, mentions: [String?]? = nil, visibleUserIds: [String?]? = nil, reply: NoteModel? = nil, tags: [String]? = nil, myReaction: String? = nil, fileIds: [String?]? = nil, app: App? = nil, poll: Poll? = nil, geo: Geo? = nil, _featuredId_: String? = nil, _prId_: String? = nil) {
+        self.id = id
+        self.createdAt = createdAt
+        self.userId = userId
+        self.user = user
+        self.text = text
+        self.cw = cw
+        self.visibility = visibility
+        self.viaMobile = viaMobile
+        self.isHidden = isHidden
+        self.renoteCount = renoteCount
+        self.repliesCount = repliesCount
+        self.reactions = reactions
+        self.emojis = emojis
+        self.reactionEmojis = reactionEmojis
+        self.files = files
+        self.replyId = replyId
+        self.renoteId = renoteId
+        self.renote = renote
+        self.mentions = mentions
+        self.visibleUserIds = visibleUserIds
+        self.reply = reply
+        self.tags = tags
+        self.myReaction = myReaction
+        self.fileIds = fileIds
+        self.app = app
+        self.poll = poll
+        self.geo = geo
+        self._featuredId_ = _featuredId_
+        self._prId_ = _prId_
+    }
 }
 
 public class App: Codable {
