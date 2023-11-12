@@ -74,7 +74,7 @@ public class App: Codable {
 // MARK: - File
 
 public struct File: Codable {
-    public var id, createdAt, name, type: String?
+    public var id, createdAt, name, type, comment: String?
     public var md5: String?
     public var size: Int?
     public var isSensitive: Bool?
