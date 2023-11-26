@@ -30,10 +30,11 @@ public class NoteModel: Codable {
     public var app: App?
     public var poll: Poll?
     public var geo: Geo?
+    public var uri, url: String?
     public var _featuredId_: String?
     public var _prId_: String?
     
-    public init(id: String? = nil, createdAt: String? = nil, userId: String? = nil, user: UserModel? = nil, text: String? = nil, cw: String? = nil, visibility: Visibility? = nil, viaMobile: Bool? = nil, isHidden: Bool? = nil, renoteCount: Int? = nil, repliesCount: Int? = nil, reactions: [String : Int]? = nil, emojis: [EmojiModel]? = nil, reactionEmojis: [EmojiModel]? = nil, files: [File?]? = nil, replyId: String? = nil, renoteId: String? = nil, renote: NoteModel? = nil, mentions: [String?]? = nil, visibleUserIds: [String?]? = nil, reply: NoteModel? = nil, tags: [String]? = nil, myReaction: String? = nil, fileIds: [String?]? = nil, app: App? = nil, poll: Poll? = nil, geo: Geo? = nil, _featuredId_: String? = nil, _prId_: String? = nil) {
+    public init(id: String? = nil, createdAt: String? = nil, userId: String? = nil, user: UserModel? = nil, text: String? = nil, cw: String? = nil, visibility: Visibility? = nil, viaMobile: Bool? = nil, isHidden: Bool? = nil, renoteCount: Int? = nil, repliesCount: Int? = nil, reactions: [String : Int]? = nil, emojis: [EmojiModel]? = nil, reactionEmojis: [EmojiModel]? = nil, files: [File?]? = nil, replyId: String? = nil, renoteId: String? = nil, renote: NoteModel? = nil, mentions: [String?]? = nil, visibleUserIds: [String?]? = nil, reply: NoteModel? = nil, tags: [String]? = nil, myReaction: String? = nil, fileIds: [String?]? = nil, app: App? = nil, poll: Poll? = nil, geo: Geo? = nil, uri: String? = nil, url: String? = nil, _featuredId_: String? = nil, _prId_: String? = nil) {
         self.id = id
         self.createdAt = createdAt
         self.userId = userId
@@ -61,6 +62,8 @@ public class NoteModel: Codable {
         self.app = app
         self.poll = poll
         self.geo = geo
+        self.uri = uri
+        self.url = url
         self._featuredId_ = _featuredId_
         self._prId_ = _prId_
     }
