@@ -46,6 +46,7 @@ open class MisskeyKit: ApiHandler {
     public lazy var notifications: MisskeyKit.Notifications = .init(from: self)
     public lazy var drive: MisskeyKit.Drive = .init(from: self)
     public lazy var messaging: MisskeyKit.Messaging = .init(from: self)
+    public lazy var clips: MisskeyKit.Clips = .init(from: self)
     
     // MARK: Meta
     

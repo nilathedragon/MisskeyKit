@@ -42,3 +42,5 @@ public typealias AntennasCallback = ([AntennaModel]?, MisskeyKitError?) -> Void
 public typealias SwCallBack = (ServiceWorkerModel?, MisskeyKitError?) -> Void
 
 public typealias TranslationCallback = (Translation?, MisskeyKitError?) -> Void
+
+public typealias ClipsCallback = ([ClipModel]?, MisskeyKitError?) -> Void

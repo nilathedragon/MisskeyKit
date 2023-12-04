@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2072F43E2B1E8DC700601093 /* Clips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2072F43D2B1E8DC700601093 /* Clips.swift */; };
+		2072F4402B1E8E0C00601093 /* ClipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2072F43F2B1E8E0C00601093 /* ClipModel.swift */; };
 		8D4A29DA23733A6E00503685 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4A29D923733A6E00503685 /* PageModel.swift */; };
 		8D71B7D7236EE6C900374F5A /* MisskeyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D71B7C9236EE6C900374F5A /* MisskeyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D71B7E3236EE6F200374F5A /* String+MisskeyKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71B7E2236EE6F200374F5A /* String+MisskeyKit.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2072F43D2B1E8DC700601093 /* Clips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clips.swift; sourceTree = "<group>"; };
+		2072F43F2B1E8E0C00601093 /* ClipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipModel.swift; sourceTree = "<group>"; };
 		8D4A29D923733A6E00503685 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		8D71B7C6236EE6C900374F5A /* MisskeyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MisskeyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D71B7C9236EE6C900374F5A /* MisskeyKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MisskeyKit.h; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 				8D7CD46323782F7200EF97A2 /* MuteModel.swift */,
 				8DABCD0D2414FB1400D9F054 /* AppModel.swift */,
 				8DCCF8E2246A933B0001A21C /* ServiceWorkerModel.swift */,
+				2072F43F2B1E8E0C00601093 /* ClipModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				8D7CD46123782ECC00EF97A2 /* Mute.swift */,
 				8DABCD0B2414FA5200D9F054 /* App.swift */,
 				8DCCF8E0246A92C00001A21C /* ServiceWorker.swift */,
+				2072F43D2B1E8DC700601093 /* Clips.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				8D71B7E9236EF61F00374F5A /* Requestor.swift in Sources */,
 				8D71B80F237111BE00374F5A /* Notificaitons.swift in Sources */,
 				8D71B8172371859500374F5A /* Meta.swift in Sources */,
+				2072F4402B1E8E0C00601093 /* ClipModel.swift in Sources */,
 				8D71B80D23710B3200374F5A /* Search.swift in Sources */,
 				8DD4559023745324003FA3C4 /* AuthViewController.swift in Sources */,
 				8D71B7F9236F3DDD00374F5A /* MisskeyKit.swift in Sources */,
@@ -333,6 +340,7 @@
 				8D71B7FD236F429E00374F5A /* NoteModel.swift in Sources */,
 				8D71B8072371081400374F5A /* Users.swift in Sources */,
 				8D7CD45E237829D300EF97A2 /* Messaging.swift in Sources */,
+				2072F43E2B1E8DC700601093 /* Clips.swift in Sources */,
 				8D71B8152371844700374F5A /* MetaModel.swift in Sources */,
 				8D71B7E3236EE6F200374F5A /* String+MisskeyKit.swift in Sources */,
 				8D71B8092371094700374F5A /* Groups.swift in Sources */,
