@@ -172,3 +172,10 @@ extension Poll {
         ]
     }
 }
+
+// MARK: - Translation
+
+public struct Translation: Codable {
+    public var text: String?
+    public var sourceLang: String?
+}

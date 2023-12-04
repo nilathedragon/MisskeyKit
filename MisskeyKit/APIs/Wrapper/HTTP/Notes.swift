@@ -488,5 +488,20 @@ extension MisskeyKit {
                 callback(error == nil, error)
             }
         }
+        
+        // MARK: - Translation
+        
+        public func translate(noteId: String, targetLanguage: String = "en-US", result callback: @escaping TranslationCallback) {
+            var params = ["noteId": noteId,
+                          "targetLang": targetLanguage] as [String: Any]
+            
+            params = params.removeRedundant()
+            handler.handleAPI(needApiKey: true, api: "notes/translate", params: params, type: Translation.self) { data, error in
+                if let error = error { callback(nil, error); return }
+                guard let data = data else { callback(nil, error); return }
+                
+                callback(data, nil)
+            }
+        }
     }
 }
