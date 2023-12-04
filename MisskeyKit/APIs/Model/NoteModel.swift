@@ -146,7 +146,7 @@ public struct Choice: Codable {
 }
 
 public struct NoteState: Codable {
-    public var isFavorited, isWatching: Bool?
+    public var isFavorited, isWatching, isMutedThread: Bool?
 }
 
 extension Geo {
