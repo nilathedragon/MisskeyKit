@@ -16,7 +16,7 @@ extension MisskeyKit {
         }
         
         public func list(result callback: @escaping ClipsCallback) {
-            var params = [] as [String: Any?]
+            var params = [:] as [String: Any?]
             
             params = params.removeRedundant() as [String: Any]
             handler.handleAPI(needApiKey: true, api: "clips/list", params: params as [String: Any], type: [ClipModel].self) { clips, error in
