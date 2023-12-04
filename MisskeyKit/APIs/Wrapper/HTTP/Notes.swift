@@ -503,5 +503,25 @@ extension MisskeyKit {
                 callback(data, nil)
             }
         }
+        
+        // MARK: - Muting
+        
+        public func mute(noteId: String, result callback: @escaping BooleanCallBack) {
+            var params = ["noteId": noteId] as [String: Any]
+            
+            params = params.removeRedundant()
+            handler.handleAPI(needApiKey: true, api: "notes/thread-muting/create", params: params, type: Bool.self) { _, error in
+                callback(error == nil, error)
+            }
+        }
+        
+        public func unmute(noteId: String, result callback: @escaping BooleanCallBack) {
+            var params = ["noteId": noteId] as [String: Any]
+            
+            params = params.removeRedundant()
+            handler.handleAPI(needApiKey: true, api: "notes/thread-muting/delete", params: params, type: Bool.self) { _, error in
+                callback(error == nil, error)
+            }
+        }
     }
 }
