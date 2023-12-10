@@ -47,6 +47,7 @@ public struct UserModel: Codable {
     public var autoWatch, alwaysMarkNsfw, carefulBot, autoAcceptFollowed: Bool?
     public var hasUnreadMessagingMessage, hasUnreadNotification: Bool?
     public var pendingReceivedFollowRequestsCount: Int?
+    public var isFollowing, isFollowed: Bool?
     
     public struct Field: Codable {
         public let name: String?
